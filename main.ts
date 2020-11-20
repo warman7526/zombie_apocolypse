@@ -1,5 +1,5 @@
 function move_pet () {
-    playerPet.setPosition(playerSprite.x + 10, playerSprite.y + 10)
+    playerPet.setPosition(playerSprite.x + randint(9, 10), playerSprite.y + randint(9, 10))
 }
 function update () {
     move_pet()
