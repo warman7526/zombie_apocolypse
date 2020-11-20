@@ -1,9 +1,11 @@
 function move_pet () {
-    playerPet.setPosition(playerSprite.x + randint(9, 10), playerSprite.y + randint(9, 10))
+    playerPet.setPosition(playerSprite.x + xoff, playerSprite.y + yoff)
 }
 function update () {
     move_pet()
 }
+let yoff = 0
+let xoff = 0
 let playerSprite: Sprite = null
 let playerPet: Sprite = null
 playerPet = sprites.create(img`
@@ -35,6 +37,10 @@ playerSprite = sprites.create(img`
     . . . . f f . . . f f . . . . 
     `, SpriteKind.Player)
 controller.moveSprite(playerSprite)
+game.onUpdateInterval(350, function () {
+    yoff = randint(10, 15)
+    xoff = randint(10, 15)
+})
 forever(function () {
     update()
 })
